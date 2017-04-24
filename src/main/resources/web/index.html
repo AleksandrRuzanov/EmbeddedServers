@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Webbit WebSocket</title>
+    <script type="text/javascript">
+        function log(message) {
+            var data = document.getElementById('data');
+            data.innerHTML= message;
+        }
+        var es = new EventSource('infoMemory');
+         es.onopen = function() {
+            log('OPEN');
+        };
+        es.onmessage = function(event) {
+            log(event.data);
+        };
+        es.onerror = function() {
+            logText('ERROR');
+        };
+
+    </script>
+</head>
+<body>
+<div id="data"></div>
+</body>
+</html>
