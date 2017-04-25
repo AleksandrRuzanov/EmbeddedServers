@@ -41,7 +41,7 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>fully.qualified.MainClass</mainClass>
+                                <mainClass>com.epam.mentoring.Main</mainClass>
                             </manifest>
                         </archive>
                         <descriptorRefs>
