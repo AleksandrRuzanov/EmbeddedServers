@@ -4,6 +4,7 @@ import com.epam.mentoring.info.InfoWebSockets;
 import com.epam.mentoring.info.InfoProvider;
 import org.webbitserver.WebServer;
 import org.webbitserver.WebServers;
+import org.webbitserver.handler.EmbeddedResourceHandler;
 import org.webbitserver.handler.StaticFileHandler;
 
 import java.util.concurrent.ExecutionException;
@@ -19,7 +20,7 @@ public class WebbitServer {
         final InfoProvider infoProvider = new InfoProvider();
         WebServer webServer = WebServers.createWebServer(8282)
                // .add(new StaticFileHandler("/web"))
-                .add(new StaticFileHandler("src/main/resources/web"))
+                .add(new EmbeddedResourceHandler("web"))
                 .add("/infoMemory", new InfoWebSockets(infoProvider));
 
         webServer.start().get();
